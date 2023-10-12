@@ -111,7 +111,7 @@
 #     pass
 
 # 38803160272
-while True:
+while True:  # ID CODE ENTRY WHILE CYCLE
     user_input = input('Please enter ID code or type "exit": ')
     if user_input.lower() == 'exit':
         break
@@ -127,7 +127,7 @@ while True:
         else:
             print('Code is too short!')
     else:
-        while True:
+        while True:  # MENU WHILE CYCLE
             user_choice = input('Please choose:\n'
                                 '1.Gender\n'
                                 '2.Date of birth\n'  # dd.mm.yyyy
@@ -144,9 +144,30 @@ while True:
                         print('You are male!')
 
             elif user_choice == '2':
-                pass
+                if user_input[0] not in '09':
+                    year = ''
+                    if user_input[0] in '12':
+                        year = '18'
+                    elif user_input[0] in '34':
+                        year = '19'
+                    elif user_input[0] in '56':
+                        year = '20'
+                    elif user_input[0] in '78':
+                        year = '21'
+                    print(f'{user_input[5:7]}.{user_input[3:5]}.{year}{user_input[1:3]}')
+                else:
+                    print('There is something wrong with ID code!')
             elif user_choice == '3':
-                pass
+                if int(user_input[7:11]) in range(1, 11):
+                    print('Kuressaare haigla')
+                elif '019' >= user_input[7:11] >= '011':
+                    print('Tartu Ülikooli Naistekliinik')
+                elif user_input[7:11] >= '021' and user_input[7:11] <= '150':
+                    print('Ida-Tallinna keskhaigla, Pelgulinna sünnitusmaja (Tallinn)')
+                elif 160 >= int(user_input[7:11]) >= 151:
+                    print('Keila haigla')
+                else:
+                    print('Was not born in Estonia.')
             elif user_choice == '4':
                 pass
             elif user_choice == '5':

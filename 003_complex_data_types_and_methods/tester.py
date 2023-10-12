@@ -87,6 +87,62 @@ numbers = {1, 5, 6, 8, 3, -4, 2, 4.23, -12.12}
 # x = list(set(x))
 # print(x)
 
-for number in range(10):
-    if number % 2 == 0:
-        print(number ** 2)
+# for number in range(10):
+#     if number % 2 == 0:
+#         print(number ** 2)
+
+
+# empty_dict = {}
+# empty_dict = dict()
+# print(empty_dict)
+# print(type(empty_dict))
+x = 5
+
+sample = {
+    'name': 'Jack',
+    'age': 32,
+    'courses': ['Math', 'Art', 'Physics'],
+    'dict_key': {'product': 'computer', 'price': 1000},
+    'variable': x,
+     1: 'int key',
+    0.23: 'float_key',
+    x: 'variable_key',
+}
+# print(sample['dict_key'])
+# print(sample.get('dict_ke', {'name': 'Undefined'}))
+# sample['name'] = 'Bob'
+# sample['country'] = 'Estonia'
+# print(sample)
+# x = {'name': 'Bob', 'country': 'Estonia'}
+# sample.update(x)
+# print(sample)
+#
+# del sample['dict_key']
+# # x = sample.popitem()
+# x = sample.pop('name')
+# print(sample)
+# print(x)
+
+# print(len(sample))
+# for item in sample:
+#     print(sample[item])
+
+# print(list(sample))
+
+print(sample.keys())
+for key in sample.keys():
+    print(key)
+print(sample.values())
+for val in sample.values():
+    print(val)
+
+print(sample.items())
+for item in sample.items():
+    print(item[0], item[1])
+for key, val in sample.items():
+    print(key, val)
+
+a = sample.copy()
+a['name'] = 'Superman'
+print(a)
+print(sample)
