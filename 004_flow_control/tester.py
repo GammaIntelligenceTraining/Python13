@@ -169,7 +169,21 @@ while True:  # ID CODE ENTRY WHILE CYCLE
                 else:
                     print('Was not born in Estonia.')
             elif user_choice == '4':
-                pass
+                chk1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+                chk2 = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3]
+                result = 0
+                for num in range(len(chk1)):
+                    result += chk1[num] * int(user_input[num])
+                if int(user_input[-1]) == result % 11:
+                    print('Code is valid! 1')
+                else:
+                    result = 0
+                    for num in range(len(chk2)):
+                        result += chk2[num] * int(user_input[num])
+                    if int(user_input[-1]) == result % 11:
+                        print('Code is valid! 2')
+                    else:
+                        print('Code is not valid!')
             elif user_choice == '5':
                 break
             elif user_choice == '0':
