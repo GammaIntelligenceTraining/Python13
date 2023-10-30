@@ -1,46 +1,52 @@
 import csv
 
-# with open('csv_files/test.csv', 'r', encoding='UTF8') as file:
-#     csv_reader = csv.reader(file)
-#     headers = next(csv_reader)
-#     csv_reader = list(csv_reader)
-#
-#
-#     for line in csv_reader:
-#         print('Name: ' + line[0])
-#         print('DOB: ' + line[1])
-#         print('Town: ' + line[2])
-#
-#     print(csv_reader)
-# # normal = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# # normal_iterator = iter(normal)
 
-# with open('csv_files/test.csv', 'r', encoding='UTF8') as file:
-#     csv_reader = csv.reader(file)
-#
-#     with open('csv_files/test_copy.csv', 'w', encoding='UTF8') as wfile:
-#         csv_writer = csv.writer(wfile, lineterminator='\n', delimiter='.', quotechar='*', quoting=csv.QUOTE_ALL)
-#
-#         # data = [['Name', 'Surname'], ['Jack', 'Smith'], ['Mary', 'Gold']]
-#         for line in csv_reader:
-#             csv_writer.writerow(line)
+with open('csv_files/test.csv', 'r') as file:
+    # names = ['Name', 'Date of birth', 'Town']
+    csv_reader = csv.DictReader(file)
+
+    # for line in csv_reader:
+    #     print(line)
+
+    with open('test_copy.csv', 'w') as wfile:
 
 
-# with open('csv_files/test_copy.csv', 'r', encoding='UTF8') as test:
-#     data = csv.reader(test, delimiter='*')
-#
-#     for line in data:
-#         print(line)
-
-
-with open('csv_files/test.csv', 'r', encoding='UTF8') as file:
-    csv_data = csv.DictReader(file)
-
-    with open('csv_files/test_copy.csv', 'w', encoding='UTF8') as wfile:
-        fieldnames = ['Name', 'Date of birth', 'Town']
-
-        csv_writer = csv.DictWriter(wfile, fieldnames=fieldnames, lineterminator='\n')
+        names = ['Name', 'Date of birth', 'Town']
+        csv_writer = csv.DictWriter(wfile, lineterminator='\n', fieldnames=names)
 
         csv_writer.writeheader()
-        for line in csv_data:
+
+        for line in csv_reader:
             csv_writer.writerow(line)
+            print(line)
+
+# with open('csv_files/test.csv', 'r') as file:
+#     csv_reader = csv.reader(file)
+#
+#     # headers = next(csv_reader)
+#     #
+#     # for name, dob, city in csv_reader:
+#     #     print(name, dob, city)
+#     #
+#     # print(headers)
+#
+#     with open('test_copy.csv', 'w') as wfile:
+#         names = ['Name', 'Date of birth', 'Town']
+#         csv_writer = csv.writer(wfile,
+#                                 lineterminator='\n',
+#                                 delimiter=',',
+#                                 # quotechar='*',
+#                                 escapechar='*',
+#                                 quoting=csv.QUOTE_MINIMAL,
+#                                 )
+#
+#         for line in csv_reader:
+#             csv_writer.writerow(line)
+#
+#
+# with open('test_copy.csv', 'r') as new_file:
+#     csv_reader = csv.reader(new_file, delimiter=',', skipinitialspace=True)
+#
+#     for line in csv_reader:
+#         print(line)
+#
