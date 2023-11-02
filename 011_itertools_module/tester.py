@@ -53,3 +53,48 @@ import itertools
 # result = itertools.accumulate(numbers2)
 # print(list(result))
 
+people = [
+    {
+        'name': 'John Smith',
+        'city': 'Berlin'
+    },
+    {
+        'name': 'Mary Gold',
+        'city': 'Berlin'
+    },
+    {
+        'name': 'Taavi Tamm',
+        'city': 'Berlin'
+    },
+    {
+        'name': 'Piere Cardin',
+        'city': 'Tallinn'
+    },
+    {
+        'name': 'Jack Rock',
+        'city': 'Tallinn'
+    },
+    {
+        'name': 'Lee Hong',
+        'city': 'Tallinn'
+    },
+    {
+        'name': 'Abdul Faruh',
+        'city': 'Dubai'
+    },
+    {
+        'name': 'Mary Pierce',
+        'city': 'Dubai'
+    },
+    {
+        'name': 'Lee Hong',
+        'city': 'Tallinn'
+    }
+]
+
+people.sort(key=lambda x: x['city'])
+result = itertools.groupby(people, lambda x: x['city'])
+
+for key, group in result:
+    # print(key, group)
+    print(list(group))
