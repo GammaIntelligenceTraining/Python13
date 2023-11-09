@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup as BS
 
 url = 'https://www.gammatest.net/course/python'
 
-response = requests.get(url)
+response = requests.get(url, headers=hea)
 
 soup = BS(response.content, 'html.parser')
 
