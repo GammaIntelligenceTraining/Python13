@@ -1,4 +1,5 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
+import hashlib
 
 app = Flask(__name__)
 
@@ -16,9 +17,14 @@ def home():
                            context=context)
 
 
-@app.route('/login/')
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'POST':
+        user_login = request.form['user-login']
+        user_password = hashlib.md5(request.form['user-password'].encode()).hexdigest()
+        return redirect(url_for('user_profile', name=user_login))
+    else:
+        return render_template('login.html')
 
 @app.route('/<name>/')
 def user_profile(name):
